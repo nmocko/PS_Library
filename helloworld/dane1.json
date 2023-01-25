@@ -1,0 +1,8 @@
+[
+    {"x": 1, "y": 2, "operation": "+"},
+    {"x": 8, "y": 2, "operation": "-"},
+    {"x":6, "y": 3, "operation": "/"},
+    {"x": 4, "y": 8, "operation": "+"},
+    {"x": 7, "y": 7, "operation": "*"},
+    {"x": -1, "y": 2, "operation": "-"}
+]

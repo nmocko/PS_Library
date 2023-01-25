@@ -1,0 +1,10 @@
+.pojemnik
+{
+  animation: pulsowanie 1s infinite alternate;
+}
+
+@keyframes pulsowanie
+{
+  from {width: 20%;}
+  to {width: 100%;}
+}

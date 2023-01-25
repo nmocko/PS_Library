@@ -1,0 +1,27 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "The \"hello world\" app",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha",
+    "start": "node app2.js",
+    "skrypt1": "node skrypt1.js",
+    "skrypt2": "node skrypt2.js"
+  },
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "mongodb": "^4.13.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-json": "^1.0.0",
+    "supertest": "^6.3.3"
+  }
+}

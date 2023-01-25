@@ -1,0 +1,69 @@
+.poj {
+
+    position: relative;
+    animation: squashstretch 6s linear normal infinite;
+}
+
+
+@keyframes squashstretch {
+
+    0%
+    {
+        left: 0%;
+        transform: rotateY(0deg);
+        
+    }
+    5%
+    {
+        left: 10%;
+        transform: rotateY(0deg);
+        
+    }
+    25%
+    {
+        left: 60%;
+        transform: rotateY(60deg);
+        
+    }
+    45%
+    {
+        left: 10%;
+        transform: rotateY(0deg);
+        
+    }
+    50%
+    {
+        left: 0%;
+        transform: rotateY(0deg);
+        
+    }
+
+    55%
+    {
+        left: -10%;
+        transform: rotateY(0deg);
+        
+    }
+    75%
+    {
+        left: -60%;
+        transform: rotateY(60deg);
+        
+    }
+    95%
+    {
+        left: -10%;
+        transform: rotateY(0deg);
+        
+    }
+    100%
+    {
+        left: 0%;
+        transform: rotateY(0deg);
+        
+    }
+
+
+}
+
+

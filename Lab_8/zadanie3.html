@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <head>
+      <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+      <link href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css" rel="stylesheet" type="text/css" />
+      <link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
+      <meta charset="utf-8">
+      <title>BG_AGH</title>
+    </head>
+  <body>
+    <div>
+      Komendy: <br />
+      1. D DODAJ (tytuł książki (spacje === '_')) (ilosc) (URL zdjęcia okładki) (Autorzy) <br />
+      2. W WYPORZYCZ (tytuł książki) (Imie Nazwisko czytelnika) <br />
+      3. Z ZWRÓĆ (tytuł książki) (Imie Nazwisko czytelnika) <br /> 
+      4. WC WYKAZ_CZYTELNICY <br />
+      5. WDK WYKAZ_DOSTĘPNE_KSIĄŻKI <br />
+      <br />
+    
+  <form>
+    <textarea></textarea>
+    <button id="button" type="button">Start!</button>
+  </from>
+    <p id="paragraph"><br /></p>
+    
+    <div class="ct-chart"></div>
+    <canvas id="canvas"
+              width="500"
+              height="500"
+              style="border:1px solid #ffffff;">
+        Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas" / It looks like your browser does not support the "canvas" element
+      </canvas>
+    <script type="text/javascript" src="zad3.js"></script>
+  </body>
+</html>

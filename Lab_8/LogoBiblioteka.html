@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Page title
+    </title>
+
+  </head>
+  <body>
+    <main>
+      <h1>
+        Płótno
+      </h1>
+
+      <h1>
+        Canvas
+      </h1>
+
+      <canvas id="canvas"
+              width="200"
+              height="300"
+              style="border:1px solid #000000;">
+        Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas" / It looks like your browser does not support the "canvas" element
+      </canvas>
+
+      <script>
+
+        var e = document.getElementById('canvas');
+        var c = e.getContext('2d');
+
+        c.fillStyle='#7ce7e6';
+        c.fillRect(0, 0, 640, 480);
+
+
+        c.beginPath()
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#8cb044';
+        c.rect(30, 100, 150, 25);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#b04b44';
+        c.rect(20, 125, 150, 25);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#aea0e4';
+        c.rect(45, 150, 140, 30);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#00e18f';
+        c.rect(20, 180, 140, 30);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#f5ed3c';
+        c.rect(30, 210, 140, 28);
+        c.fill();
+        c.stroke();
+
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#b04b44';
+        c.rect(10, 238, 150, 25);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#8cb044';
+        c.rect(40, 263, 145, 23);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#f5ed3c';
+        c.rect(20, 286, 145, 20);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.font = '20px Arial';
+        c.strokeText('B', 70, 144);
+
+        c.beginPath();
+        c.font = '20px Arial';
+        c.strokeText('G', 70, 172);
+
+        c.beginPath();
+        c.font = '20px Arial';
+        c.strokeText('A', 70, 202);
+
+        c.beginPath();
+        c.font = '20px Arial';
+        c.strokeText('G', 70, 231);
+
+        c.beginPath();
+        c.font = '20px Arial';
+        c.strokeText('H', 70, 258);
+
+        var image = new Image();
+        image.src='catbooks.gif';
+        image.onload = function(){
+        c.drawImage(this, -25,3, 250, 170);   
+        }
+
+    
+
+
+    </script>
+    </main>
+  </body>
+</html>

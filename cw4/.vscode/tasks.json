@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build:storybook",
+			"path": "chartist",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build:storybook - chartist",
+			"detail": "del ./storybook-static; NODE_ENV=production build-storybook"
+		}
+	]
+}

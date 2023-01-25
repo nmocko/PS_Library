@@ -1,0 +1,483 @@
+doctype html
+html(lang='pl')
+  // Zmień wartość "lang" z 'en' na 'pl'
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    // Icons
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    script(src='http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js')
+    link(href='http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Oxygen:300', rel='stylesheet', type='text/css')
+  body
+    .w3-container.w3-bar.w3-light-grey
+      .w3-hide-medium.w3-hide-small
+        a.w3-bar-item.w3-button(href='#')
+          i.fas.fa-book-open
+        .w3-dropdown-hover(style='margin-left: auto; margin-right: auto;')
+          button.w3-button
+            | Ksi&aogon;&zdot;ki &nbsp;&nbsp;
+            i.fa.fa-caret-down
+          .w3-dropdown-content.w3-bar-block.w3-card-4
+            a.w3-bar-item.w3-button(href='#') Do wyporzyczenia
+            a.w3-bar-item.w3-button(href='#') Do kupienia
+        form(style='float: right; width: 30%;')
+          input.w3-bar-item.w3-round-large.w3-border.w3-border-black.w3-input(type='text', style='width: 34%; float: left;', placeholder='Login')
+          input.w3-bar-item.w3-round-large.w3-border.w3-border-black.w3-input(type='password', style='width: 34%; float: left;', placeholder='Haslo')
+          a#login.w3-bar-item.w3-button.w3-round-large.w3-border.w3-border-black.w3-white(href='#', style='width: 30%; float: right') Zaloguj
+      .w3-hide-large
+        a.w3-bar(href='#')
+          i.w3-large.fas.fa-book-open(style='padding-left: 48%; padding-top: 10px;')
+        .w3-dropdown-hover.w3-block
+          button.w3-button.w3-block
+            | Ksi&aogon;&zdot;ki &nbsp;&nbsp;
+            i.fa.fa-caret-down
+          .w3-dropdown-content.w3-bar-block(style='width: 95%;')
+            a.w3-bar-item.w3-block.w3-button(href='#') Do wyporzyczenia
+            a.w3-bar-item.w3-block.w3-button(href='#') Do kupienia
+        .w3-dropdown-hover.w3-block
+          button.w3-button.w3-block
+            i.fa.fa-search
+          .w3-dropdown-content.w3-bar-block(style='width: 95%;')
+            input.w3-bar-item.w3-border.w3-border-black.w3-input(href='#', placeholder='Login')
+            input.w3-bar-item.w3-border.w3-border-black.w3-input(href='#', type='password', placeholder='Haslo')
+            a#login.w3-bar-item.w3-button.w3-border.w3-border-black.w3-white(href='#') Zaloguj
+    div(style='padding: 40px 20% 40px 0px; float: right;')
+      canvas#canvas(style=' border:1px solid #000000;', width='200', height='300')
+        | Wygl&aogon;da na to, &zdot;e twoja przegl&aogon;darka nie obs&lstrok;uguje elementu &quot;canvas&quot; / It looks like your browser does not support the &quot;canvas&quot; element
+    h2.w3-xxlarge(style='padding-top: 140px ;padding-left: 40px; width: 85%; margin-left: auto; margin-right: auto;')
+      b#twoje Witaj w Bibliotece G&lstrok;&oacute;wnej AGH
+    #acc.w3-row.w3-container(style='width: 75%; margin-left: auto; margin-right: auto;')
+    div
+      h1.w3-xxlarge(style='padding-left: 40px; width: 85%; margin-left: auto; margin-right: auto;')
+        b Zawarto&sacute;&cacute; ksi&eogon;gozbioru
+    div(style='padding-left: 23%; padding-top: 20px;')
+      .ct-chart
+      canvas#canvass(style='border:1px solid #ffffff;', width='900', height='160')
+        | Wygl&aogon;da na to, &zdot;e twoja przegl&aogon;darka nie obs&lstrok;uguje elementu &quot;canvas&quot; / It looks like your browser does not support the &quot;canvas&quot; element
+    #accordion.w3-row.w3-container(style='width: 75%; margin-left: auto; margin-right: auto;')
+    .w3-bar.w3-center(style='width: 60%; margin-right: auto; margin-left: auto;')
+      .w3-bar-item.w3-mobile(style='width:24%; margin-left: auto; margin-right: auto;') Biblioteka G&lstrok;&oacute;wna Akademii G&oacute;rniczo-Hutniczej
+      .w3-bar-item.w3-mobile(style='width: 38%; margin-left: auto; margin-right: auto;')
+        i.material-icons &#xE0BE;
+        a.w3-text-blue(href='mail: bgagh@bg.agh.edu.pl') bgagh@bg.agh.edu.pl
+      .w3-bar-item.w3-mobile(style='width: 38%; margin-left: auto; margin-right: auto;')
+        i.fa.fa-phone
+        a.w3-text-blue(href='tel: +48126173208') +48 12 617 32 08
+    |  
+    script.
+
+
+        var dane = {
+            labels: [],
+            series: [[]]
+        }
+
+
+        var czytelnicy = []
+
+        console.log(czytelnicy)
+
+        let book = !{biblioteka}
+        var biblioteka = []
+        for (let i in book) {
+            biblioteka[i] = []
+            biblioteka[i][0] = book[i].tytul
+            biblioteka[i][1] = book[i].ilosc
+            biblioteka[i][2] = book[i].zdjecie
+            biblioteka[i][3] = book[i].autorzy
+            dane.labels[i] = book[i].tytul
+            dane.series[0][i] = book[i].ilosc
+        }
+
+        var buttonL = document.getElementById('login');
+        var logged = -1;
+
+
+        //- var biblioteka = #{dan}
+        //- console.log(czytelnicy, biblioteka)
+        //- var czytelnicy = [['Anna', 'Kowalska', 0, [], ['Anna', 'Kowalska']], ['Jan', 'Nowak', 0, [], ['Jan', 'Nowak']], ['Adam', 'Kostka', 0, [], ['Adam', 'Kostka']]];
+        //- var biblioteka = [['Pan_Tadeusz', 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuIBW0JL1-GaVattVZJRJv3YFyJP3o-Ry4bg&usqp=CAU', 'Adam Mickiewicz'],
+        //- ['Wesele', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZxriutyUILpaXGF0YSMgAOmIiPZhhYz-p_7kUitAOqHxN2P2z-fCVLd8gWQufg_DIr0k&usqp=CAU', 'Stanisław Wyspiański'],
+        //- ['Solaris', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPOI_jMS3JRE4uNS4IgK_tV3RdMsq8fx9AVw&usqp=CAU' ,'Stanisław Lem'],
+        //- ['Lalka', 6, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpFFS1ljJAdzdem3GzC1CYS6HK-xuTswSrVRH4XdDAA5-H82ZYJxfJH3J3CqpBvbHaAJc&usqp=CAU', 'Bolesław Prus']];
+
+        library_write();
+
+
+        var ee = document.getElementById('canvass');
+        var cc = ee.getContext('2d');
+
+        function wykres() {
+
+
+            Chartist.Bar('.ct-chart', dane, 
+            {width: 900, height: 300, axisY: {
+                onlyInteger: true,
+                offset: 20
+            }});
+
+            var iloscksiazek = biblioteka.length;
+            let a = 0;
+            let w = Math.floor(900 / (iloscksiazek));
+            let s = Math.floor(w / 2) + 3;
+            while (a < iloscksiazek) {
+                imagen(a, s)
+                a += 1;
+                s += w;
+                s -= 10;
+            }
+        }
+
+        function imagen(a2, x2) {
+            var imagee = new Image();
+                imagee.src = biblioteka[a2][2];
+                imagee.onload = function() {
+                    cc.drawImage(this, x2, 0, 44, 90);
+                }
+                }
+        wykres();
+
+
+        buttonL.onclick = function baza() {
+
+            const name = document.forms[0].elements[0].value;
+            const pew = document.forms[0].elements[1].value;
+            
+
+                const xhr = new XMLHttpRequest();
+                xhr.addEventListener("load", function (evt) {
+                    if (xhr.status === 200) {
+                        if (xhr.response.nr == -1) {
+                            console.log('błędny login lub hasło')
+                        }
+                        else {
+                        czytelnicy[0] = xhr.response.imie
+                        czytelnicy[1] = xhr.response.nazwisko
+                        czytelnicy[2] = xhr.response.ksiazki.length
+                        czytelnicy[3] = xhr.response.ksiazki
+                        logged = xhr.response.nr
+
+
+                    var naglowek = document.getElementById('twoje');
+
+                    naglowek.innerHTML = 'Witaj ' + xhr.response.imie + ' ' + xhr.response.nazwisko + '<br \>Twoje wyporzyczone książki:';
+                    logged = xhr.response.nr;
+                    write();
+                        }
+
+                    }
+                });
+
+                xhr.addEventListener("error", function (evt) {
+                    window.alert('There was a problem with this request.');
+                });
+                xhr.responseType ='json';
+
+                xhr.open('PUT', '/?login=' + name + '&haslo=' + pew, true);
+                xhr.send(null);
+
+        }
+
+        function red_border() {
+
+            for (let i in biblioteka) {
+                if (biblioteka[i][1] === 0) {
+                    let name = 'ksiegozbior-' + i;
+                    let b = document.getElementById(name);
+                    b.style.cssText = `box-shadow: 0px 0px 3px 3px #FF9595;`;
+
+                }
+            }
+        }
+
+        function library_write () {
+
+            const container = document.getElementById('accordion');
+
+            container.innerHTML = '';
+
+            biblioteka.forEach((result, idx) => {
+            const card = document.createElement('div');
+            card.classList = 'card-body';
+
+            const content = `
+            <div  ondblclick="wyporzycz(${idx})" class="w3-col m6 l4  w3-margin-bottom">
+            <div class="card w3-container" style="height: 120%;">
+                <div id='ksiegozbior-${idx}' class="w3-card-4 poj" style ="">
+
+            <header class="w3-container w3-light-grey w3-border w3-border-black">
+                <h3 class="w3-text-dark-grey ">${biblioteka[idx][0]}</h3>
+            </header>
+
+            <div class="w3-container w3-border w3-border-black">
+                <b class="w3-text-xx-large">${biblioteka[idx][3]}</b>
+            </div>
+            
+            <div class="w3-border w3-border-black">
+                <img src="${biblioteka[idx][2]}" style="width:100%;  object-fit: cover;">
+            </div>
+            
+            <button class="w3-pannel w3-border w3-border-black w3-block w3-light-grey w3-left-align w3-text-small"><b>Ilość:</b> ${biblioteka[idx][1]}</button>
+            
+            </div> 
+            </div>
+            </div>
+            `;
+
+            container.innerHTML += content;
+        })
+        red_border();
+
+        Chartist.Bar('.ct-chart', dane, 
+            {width: 900, height: 300, axisY: {
+                onlyInteger: true,
+                offset: 20
+            }});
+        }
+
+
+        function wyporzycz(index) {
+
+
+            const xhr = new XMLHttpRequest();
+
+                xhr.open('POST', '/', true);
+
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        console.log(xhr.response)
+                        if (xhr.response.nr == -1) {
+                            console.log('Musisz być zalogowany, aby móc wyporzyczać');
+                            return;
+                        }
+                        if (xhr.response.nr == -2) {
+                            console.log("Wszytskie egzemplarze tej ksiazki zostały wyporzyczone");
+                            return;
+                        }
+                        if (xhr.response.nr == -3) {
+                            console.log("Już wyporzyczyłeś jeden egzemplarz tej książki");
+                            return;
+                        }
+                        if (xhr.response.nr == 1) {
+                            biblioteka[index][1] -= 1;
+                            dane.series[0][index] -= 1;
+                            czytelnicy[3][czytelnicy[2]] = [biblioteka[index][0], biblioteka[index][3], biblioteka[index][2], index];
+                            czytelnicy[2] += 1;
+
+                            library_write();
+                            write();                 
+                        }
+                    }
+                };
+
+                xhr.responseType ='json';
+
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                xhr.send('imie=' + czytelnicy[0] + '&nazwisko=' + czytelnicy[1] + '&tytul=' + biblioteka[index][0] + 
+                '&autorzy=' + biblioteka[index][3] + '&link=' + biblioteka[index][2] + '&index=' + index, true)
+
+
+            return;
+
+        }
+
+        function zwroc(index) {
+            var index_biblioteka = czytelnicy[3][index][3];
+
+            const xhr = new XMLHttpRequest();
+                xhr.open("DELETE", '/?imie=' + czytelnicy[0] + '&nazwisko=' + czytelnicy[1] + '&tytul=' + biblioteka[index_biblioteka][0] +
+                '&autorzy=' + biblioteka[index_biblioteka][3] + '&link=' + biblioteka[index_biblioteka][2] + '&index=' + index_biblioteka, true);
+
+                xhr.addEventListener("load", function (evt) {
+                    if (xhr.status === 200) {
+                        if (xhr.response.nr == 1) {
+                            var index_biblioteka = czytelnicy[3][index][3];
+                            biblioteka[index_biblioteka][1] += 1;
+                            dane.series[0][index_biblioteka] += 1;
+                            var filtered = czytelnicy[3].filter(function(value, index, arr){ 
+                                return value[0] != biblioteka[index_biblioteka][0];
+                            });
+
+                            czytelnicy[3] = filtered;
+                            czytelnicy[2] -= 1;
+                            library_write();
+                            write();
+
+                        }
+                        //- console.log(xhr)
+                    }
+                });
+
+                xhr.addEventListener("error", function (evt) {
+                    window.alert('There was a problem with this request.');
+                });
+
+                xhr.responseType ='json';
+                
+                xhr.send(null);
+            return;
+        }
+
+        function write() {
+            const cont = document.getElementById('acc');
+            cont.innerHTML = '';
+
+            czytelnicy[3].forEach((result, idx) => {
+            const car = document.createElement('div');
+            car.classList = 'card-body';
+
+            const conte = `
+            <div id='wyporzyczone-${idx}' ondblclick="zwroc(${idx})" class="w3-col m6 l4  w3-margin-bottom">
+            <div class="card w3-container" style="height: 120%;">
+                <div class="w3-card-4 poj" >
+
+            <header class="w3-container w3-light-grey w3-border w3-border-black">
+                <h3 class="w3-text-dark-grey ">${czytelnicy[3][idx][0]}</h3>
+            </header>
+
+            <div class="w3-container w3-border w3-border-black">
+                <b class="w3-text-xx-large">${czytelnicy[3][idx][1]}</b>
+            </div>
+            
+            <div class="w3-border w3-border-black">
+                <img src="${czytelnicy[3][idx][2]}" style="width:100%;  object-fit: cover;">
+            </div>
+            
+            </div> 
+            </div>
+            </div>
+            `;
+
+            cont.innerHTML += conte;
+            })
+        }
+
+
+
+        var e = document.getElementById('canvas');
+        var c = e.getContext('2d');
+
+        c.fillStyle='#7ce7e6';
+        c.fillRect(0, 0, 640, 480);
+
+
+        c.beginPath()
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#8cb044';
+        c.rect(30, 100, 150, 25);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#b04b44';
+        c.rect(20, 125, 150, 25);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#aea0e4';
+        c.rect(45, 150, 140, 30);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#00e18f';
+        c.rect(20, 180, 140, 30);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#f5ed3c';
+        c.rect(30, 210, 140, 28);
+        c.fill();
+        c.stroke();
+
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#b04b44';
+        c.rect(10, 238, 150, 25);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#8cb044';
+        c.rect(40, 263, 145, 23);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.lineWidth = 2;
+        c.strokeStyle='black';
+        c.fillStyle='#f5ed3c';
+        c.rect(20, 286, 145, 20);
+        c.fill();
+        c.stroke();
+
+        c.beginPath();
+        c.font = '20px Arial';
+        c.strokeText('B', 70, 144);
+
+        c.beginPath();
+        c.font = '20px Arial';
+        c.strokeText('G', 70, 172);
+
+        c.beginPath();
+        c.font = '20px Arial';
+        c.strokeText('A', 70, 202);
+
+        c.beginPath();
+        c.font = '20px Arial';
+        c.strokeText('G', 70, 231);
+
+        c.beginPath();
+        c.font = '20px Arial';
+        c.strokeText('H', 70, 258);
+
+        var image = new Image();
+        image.src='catbooks.gif';
+        image.onload = function(){
+        c.drawImage(this, -25,3, 250, 170);   
+        }
+
+
+        const logo = document.getElementById("canvas");
+        let skala = 0.4;
+        let kat = 90;
+        let step = 0.006;
+
+
+        async function animacjaloga () {
+            logo.style.scale = skala;
+            logo.style.transform = 'rotateY(' + kat + 'deg)';
+            skala += step;
+            kat += 1;
+            if (skala > 1) {
+                step *= -1;
+            }
+            if (skala < 0.4) {
+                step *= -1;
+
+            }
+            requestAnimationFrame(animacjaloga);
+        }
+
+        requestAnimationFrame(animacjaloga); 

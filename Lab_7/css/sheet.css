@@ -1,0 +1,181 @@
+@import url(sheet.css) screen and (width);
+@media screen and (min-width: 901px) {
+	.azure {
+    background-color:rgb(206, 236, 247);
+    border: 1px solid;
+    box-shadow:0px 0px 5px;
+}
+
+.mm {
+  margin: 7px;
+}
+
+header h1 {
+  font-size: 3.2vw;
+}
+
+aside  {
+  z-index: 2;
+  position: relative;
+  float: right;
+  bottom: 5.7vw;
+  width: 40vw;
+}
+
+aside h1 {
+  font-size: 2vw;
+}
+
+aside h2  {
+  font-size: 2vw;
+  position: relative;
+  bottom: 8px;
+}
+aside ul {
+  font-size: 1.5vw;
+  position: relative;
+  bottom: 15px;
+}
+
+.pojemnik
+{
+  animation: pulsowanie 1s infinite alternate;
+}
+
+@keyframes pulsowanie
+{
+  from {color: red;}
+  to {color: blue;}
+}
+
+footer {
+  padding: 7px 7px 8px;
+  outline-offset: 10px;
+  font-size: 1.6vw;
+  position: relative;
+  top: 40px;
+}
+
+header h1 {
+  margin: 8px;
+}
+main {
+  width: 40vw;
+  position: relative;
+  top: 30px;
+  z-index: 1;
+
+}
+main h1 {
+  margin: 9px;
+  font-size: 2.5vw;
+}
+main blockquote {
+  font-family: "Lucida Console", monospace;
+  position: relative;
+  font-size: 1.1vw;
+  margin: 9px;
+}
+
+nav {
+  width: 15vw;
+  position: relative;
+  top: 15px;
+  
+}
+nav ul {
+  font-size: 1.5vw;
+  text-align: left;
+}
+
+}
+ 
+@media screen and (max-width: 900px) {
+
+  .azure {
+    background-color:rgb(206, 236, 247);
+    border: 1px solid;
+    box-shadow:0px 0px 5px;
+
+}
+
+  .mm {
+
+}
+
+aside {
+  position:relative;
+  top: 20px;
+}
+
+aside h1 {
+  font-size: 5vw;
+  margin: 3vw;
+}
+
+aside h2  {
+  font-size: 5vw;
+  padding-bottom: 0;
+  margin: 3vw;
+  position: relative;
+  bottom: 2.4vw;
+}
+aside ul {
+  font-size: 3vw;
+  padding-left: 15vw;
+  position: relative;
+  bottom: 2.8vw;
+  /* position: relative;
+  bottom: 15px;
+  margin: 3vw; */
+}
+
+.pojemnik
+{
+  animation: pulsowanie 1s infinite alternate;
+}
+
+@keyframes pulsowanie
+{
+  from {color: red;}
+  to {color: blue;}
+}
+
+footer {
+  padding: 7px 7px 8px;
+  position:relative;
+  top: 40px;
+  font-size: 3vw;
+}
+
+header h1 {
+  font-size: 10vw;
+  margin: 8px;
+}
+main {
+  position:relative;
+  top: 30px;
+
+}
+main h1 {
+  margin: 2vw;
+  font-size: 6vw;
+}
+main blockquote {
+  margin: 2vw;
+  font-family: "Lucida Console", monospace;
+  font-size: 2.5vw;
+}
+
+nav {
+  position:relative;
+  top: 10px;
+}
+nav ul {
+  margin: 3vw; 
+  padding-left: 15vw;
+  font-size: 3vw;
+}
+
+
+}

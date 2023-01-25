@@ -1,0 +1,84 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        header("Access-Control-Allow-Origin: http://worldtimeapi.org/api/timezone/*, http://localhost:3001/")
+        title
+            | Form
+        script.
+            
+            function download() {
+                var button = document.getElementById('remote')
+                button.innerHTML = 'Downloading data'
+
+                fetch('http://worldtimeapi.org/api/timezone/' + document.getElementsByName("area")[0].value + 
+                '/' + document.getElementsByName("location")[0].value, {
+                    headers: {
+                    }
+                }) 
+                .then(function (response) { 
+                    if (!response.ok)
+                        throw Error(response.statusText);
+                    if (response.headers.get("Content-Type") !== 'application/json') {
+
+                        const result = response.text();
+                        async function getdate () {
+                            let date = await result;
+                            if (date === "This website is currently experiencing high load.") {
+                                document.getElementById('remote').innerHTML = "The server is overloaded";
+                            }
+                            else {
+                                let dateJson = JSON.parse(date);
+                                document.getElementById('remote').innerHTML = dateJson.datetime;
+                            }
+                        }
+                        getdate();
+                    }
+                    else {
+                        console.log('jupi')
+                    }
+                })
+                .catch(function (error) { // if the promise is rejected
+                    window.alert(error);
+                });
+
+
+                fetch('http://localhost:3001/', {
+                    headers: {
+                    }
+                }) 
+                .then(function (response) { 
+                    if (!response.ok)
+                        throw Error(response.statusText);
+                    if (response.headers.get("Content-Type") !== 'application/json') {
+
+                        const result = response.text();
+                        async function gethello () {
+                            let date = await result;
+                            
+                            console.log(date)
+                            const parser = new DOMParser();
+                            const xml = parser.parseFromString(date, "application/xml");
+                            document.getElementById('local').innerHTML = xml.getElementById('date').innerHTML + ' ' + xml.getElementById('time').innerHTML
+                        }
+                        gethello();
+                    }
+                })
+                .catch(function (error) { // if the promise is rejected
+                    window.alert(error);
+                });
+
+            }
+
+    body
+        main
+            form
+                textarea#commandarea(name='area' rows='4' cols='50' placeholder='area')
+                br
+                textarea#commandarea(name='location' rows='4' cols='50' placeholder='location')
+                br
+                input(type='button' value='Pobierz' onclick='download()')
+            h1 Remote 
+            div(id='remote') Remote date and time
+            h1 Local 
+            div(id='local') Local date and time
